@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ฟอร์มจองตั๋วกิจกรรม 🎟️</title>
+  <link rel="stylesheet" href="booking.css" />
+</head>
+<body>
+
+  <h2>🎟️ ฟอร์มจองตั๋วกิจกรรม</h2>
+  <form id="eventBookingForm" novalidate>
+    <label for="fullname">ชื่อ-นามสกุล</label>
+    <input type="text" id="fullname" name="fullname" placeholder="กรอกชื่อ-นามสกุล" required />
+    <div class="error-msg" id="fullnameError"></div>
+
+    <label for="phone">เบอร์โทรศัพท์</label>
+    <input type="tel" id="phone" name="phone" placeholder="เบอร์โทร 10 หลักขึ้นต้นด้วย 0" required pattern="^0\d{9}$" />
+    <div class="error-msg" id="phoneError"></div>
+
+    <label for="ticketType">ประเภทตั๋ว</label>
+    <select id="ticketType" name="ticketType" required>
+      <option value="">-- กรุณาเลือกประเภทตั๋ว --</option>
+      <option value="Normal">ปกติ</option>
+      <option value="VIP">VIP</option>
+      <option value="Premium">Premium</option>
+    </select>
+    <div class="error-msg" id="ticketTypeError"></div>
+
+    <label for="ticketCount">จำนวนตั๋ว</label>
+    <input type="number" id="ticketCount" name="ticketCount" min="1" max="5" placeholder="1-5 ใบ" required />
+    <div class="error-msg" id="ticketCountError"></div>
+
+    <button type="submit">จองตั๋ว</button>
+  </form>
+
+  <!-- Modal -->
+  <div id="modalBackdrop" class="modal-backdrop">
+    <div class="modal-content">
+      <h3 id="modalTitle"></h3>
+      <p id="modalMessage"></p>
+      <button id="modalCloseBtn" class="modal-close-btn">ปิด</button>
+    </div>
+  </div>
+
+  <script src="booking.js"></script>
+</body>
+</html>

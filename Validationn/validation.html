@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>คำร้องขอโอนย้ายสาขาวิชา 📋</title>
+  <link rel="stylesheet" href="validation.css" />
+</head>
+<body>
+
+  <h2>📋 คำร้องขอโอนย้ายสาขาวิชาต่างคณะ</h2>
+  <form id="transferRequestForm" novalidate>
+    <label for="studentName">ชื่อ-นามสกุล</label>
+    <input type="text" id="studentName" name="studentName" placeholder="กรอกชื่อ-นามสกุล" required />
+    <div class="error-msg" id="studentNameError"></div>
+
+    <label for="studentID">รหัสนักศึกษา</label>
+    <input type="text" id="studentID" name="studentID" placeholder="กรอกรหัสนักศึกษา" pattern="^\d{8,}$" required />
+    <div class="error-msg" id="studentIDError"></div>
+
+    <label for="facultyFrom">คณะที่ต้องการย้ายออก</label>
+    <input type="text" id="facultyFrom" name="facultyFrom" placeholder="กรอกชื่อคณะเดิม" required />
+    <div class="error-msg" id="facultyFromError"></div>
+
+    <label for="facultyTo">คณะที่ต้องการย้ายเข้า</label>
+    <input type="text" id="facultyTo" name="facultyTo" placeholder="กรอกชื่อคณะปลายทาง" required />
+    <div class="error-msg" id="facultyToError"></div>
+
+    <label for="reason">เหตุผลในการขอโอนย้าย</label>
+    <textarea id="reason" name="reason" rows="4" placeholder="กรอกเหตุผล" required></textarea>
+    <div class="error-msg" id="reasonError"></div>
+
+    <button type="submit">ส่งคำร้อง</button>
+  </form>
+
+  <!-- Modal -->
+  <div id="modalBackdrop" class="modal-backdrop">
+    <div class="modal-content">
+      <h3 id="modalTitle"></h3>
+      <p id="modalMessage"></p>
+      <button id="modalCloseBtn" class="modal-close-btn">ปิด</button>
+    </div>
+  </div>
+
+  <script src="validation.js"></script>
+</body>
+</html>
